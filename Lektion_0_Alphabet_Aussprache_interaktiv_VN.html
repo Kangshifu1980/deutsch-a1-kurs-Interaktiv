@@ -273,9 +273,9 @@
   <div class="top">
     <div>
       <h1>🇩🇪 Mission 0 — Alphabet &amp; Aussprache</h1><p style='margin:6px 0 0;color:#cbd5e1'><em>🇻🇳 Nhiệm vụ 0 – Bảng chữ cái &amp; Phát âm</em></p>
-      <p>Alphabet · Umlaute · ch · st/sp · Auslautverhärtung</p>
+      <p>Alphabet · Vokale · Umlaute · ch · st/sp · Auslautverhärtung · Z/R</p>
     </div>
-    <div class="badge" id="counter">Aufgabe 1 / 15</div>
+    <div class="badge" id="counter">Aufgabe 1 / 17</div>
   </div>
 
   <div class="progress-wrap"><div class="progress" id="progress"></div></div>
@@ -294,30 +294,30 @@
 const baseQuestions = [
   {
     kind:"Umlaut",
-    q:"Welcher Umlaut fehlt? B_r",
+    q:"Welcher Umlaut fehlt? sch_n",
     vn:"Chữ biến âm nào còn thiếu?",
     options:["Ä","Ö","Ü","ß"],
-    answer:"Ä",
-    de:"Richtig: Bär.",
-    vi:"Đúng: Bär."
+    answer:"Ö",
+    de:"Richtig: schön. Der Umlaut gehört zur richtigen Schreibweise und Aussprache.",
+    vi:"Đúng: schön. Umlaut là một phần của cách viết và phát âm đúng."
   },
   {
     kind:"Umlaut",
-    q:"Welcher Umlaut fehlt? H_te",
+    q:"Welcher Umlaut fehlt? _bung",
     vn:"Chữ biến âm nào còn thiếu?",
     options:["Ö","Ä","Ü","E"],
     answer:"Ü",
-    de:"Richtig: Hüte.",
-    vi:"Đúng: Hüte."
+    de:"Richtig: Übung.",
+    vi:"Đúng: Übung."
   },
   {
     kind:"Umlaut",
-    q:"Welcher Umlaut fehlt? L_we",
+    q:"Welcher Umlaut fehlt? _rzte",
     vn:"Chữ biến âm nào còn thiếu?",
-    options:["Ü","Ä","Ö","O"],
-    answer:"Ö",
-    de:"Richtig: Löwe.",
-    vi:"Đúng: Löwe."
+    options:["Ü","Ä","Ö","A"],
+    answer:"Ä",
+    de:"Richtig: Ärzte. Hier ist Ä kurz [ɛ].",
+    vi:"Đúng: Ärzte. Ở đây Ä được phát âm ngắn [ɛ]."
   },
   {
     kind:"ch-Laut",
@@ -325,17 +325,17 @@ const baseQuestions = [
     vn:"Trong từ „ich“ là âm ch nào?",
     options:["ich-Laut [ç]","ach-Laut [x]"],
     answer:"ich-Laut [ç]",
-    de:"Nach i spricht man den weichen ich-Laut.",
-    vi:"Sau i, ch được phát âm mềm [ç]."
+    de:"Grundregel: Nach i hört man hier den ich-Laut [ç].",
+    vi:"Quy tắc cơ bản: Sau i, ở đây ta nghe âm ich [ç]."
   },
   {
     kind:"ch-Laut",
-    q:"Welcher ch-Laut ist in „Bach“?",
-    vn:"Trong từ „Bach“ là âm ch nào?",
+    q:"Welcher ch-Laut ist in „Buch“?",
+    vn:"Trong từ „Buch“ là âm ch nào?",
     options:["ich-Laut [ç]","ach-Laut [x]"],
     answer:"ach-Laut [x]",
-    de:"Nach a spricht man den ach-Laut.",
-    vi:"Sau a, ch được phát âm mạnh [x]."
+    de:"Grundregel: Nach u hört man hier den ach-Laut [x].",
+    vi:"Quy tắc cơ bản: Sau u, ở đây ta nghe âm ach [x]."
   },
   {
     kind:"sch / st / sp",
@@ -357,21 +357,21 @@ const baseQuestions = [
   },
   {
     kind:"sch / st / sp",
-    q:"Ergänze: ___ehen",
+    q:"Ergänze: ___raße",
     vn:"Điền phần còn thiếu.",
     options:["St","Sp","Sch","S"],
     answer:"St",
-    de:"stehen beginnt mit St und klingt am Anfang wie „scht“.",
-    vi:"stehen bắt đầu bằng St và đọc gần như „scht“."
+    de:"Straße beginnt mit St und klingt am Wortanfang wie „scht“.",
+    vi:"Straße bắt đầu bằng St và ở đầu từ được đọc gần như „scht“."
   },
   {
     kind:"Auslautverhärtung",
-    q:"Wie klingt das d am Ende von „Hund“?",
-    vn:"Chữ d ở cuối từ „Hund“ được phát âm như thế nào?",
+    q:"Wie klingt das d am Ende von „Abend“?",
+    vn:"Chữ d ở cuối từ „Abend“ được phát âm như thế nào?",
     options:["[d]","[t]","[k]","[p]"],
     answer:"[t]",
-    de:"Am Wortende klingt d stimmlos wie [t]. Die Schreibweise bleibt Hund.",
-    vi:"Ở cuối từ, d được phát âm vô thanh như [t]. Cách viết vẫn là Hund."
+    de:"Am Wortende wird d stimmlos wie [t] gesprochen. Die Schreibweise bleibt Abend.",
+    vi:"Ở cuối từ, d được phát âm vô thanh như [t]. Cách viết vẫn là Abend."
   },
   {
     kind:"Auslautverhärtung",
@@ -379,7 +379,7 @@ const baseQuestions = [
     vn:"Chữ g ở cuối từ „Weg“ được phát âm như thế nào?",
     options:["[g]","[d]","[k]","[p]"],
     answer:"[k]",
-    de:"Am Wortende klingt g stimmlos wie [k]. Die Schreibweise bleibt Weg.",
+    de:"Am Wortende wird g stimmlos wie [k] gesprochen. Die Schreibweise bleibt Weg.",
     vi:"Ở cuối từ, g được phát âm vô thanh như [k]. Cách viết vẫn là Weg."
   },
   {
@@ -388,7 +388,7 @@ const baseQuestions = [
     vn:"Chữ b ở cuối từ „Urlaub“ được phát âm như thế nào?",
     options:["[p]","[b]","[t]","[k]"],
     answer:"[p]",
-    de:"Am Wortende klingt b stimmlos wie [p]. Die Schreibweise bleibt Urlaub.",
+    de:"Am Wortende wird b stimmlos wie [p] gesprochen. Die Schreibweise bleibt Urlaub.",
     vi:"Ở cuối từ, b được phát âm vô thanh như [p]. Cách viết vẫn là Urlaub."
   },
   {
@@ -417,6 +417,24 @@ const baseQuestions = [
     answer:"ts",
     de:"Z klingt in deutschen Wörtern wie „ts“.",
     vi:"Trong từ tiếng Đức, Z được phát âm như „ts“."
+  },
+  {
+    kind:"Vokale",
+    q:"Welches Wort hat hier ein langes E [eː]?",
+    vn:"Từ nào ở đây có âm E dài [eː]?",
+    options:["der Esel","essen","Bett","nett"],
+    answer:"der Esel",
+    de:"Im Wort „Esel“ ist das E lang [eː]. In deutschen Wörtern können Vokale lang oder kurz sein.",
+    vi:"Trong từ „Esel“, E được phát âm dài [eː]. Nguyên âm tiếng Đức có thể dài hoặc ngắn."
+  },
+  {
+    kind:"Umlaut",
+    q:"Welche Aussage ist richtig?",
+    vn:"Phát biểu nào đúng?",
+    options:["Ä ist immer lang.","Ä kann lang oder kurz sein.","Ä klingt immer wie A.","Ä wird nicht gesprochen."],
+    answer:"Ä kann lang oder kurz sein.",
+    de:"Richtig: Ä kann lang sein wie in „spät“ [ɛː] oder kurz wie in „Ärzte“ [ɛ].",
+    vi:"Đúng: Ä có thể dài như trong „spät“ [ɛː] hoặc ngắn như trong „Ärzte“ [ɛ]."
   },
   {
     kind:"Alphabet",
